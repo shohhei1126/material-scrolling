@@ -40,8 +40,8 @@ public class MaterialScrollingViewPager extends ViewPager {
             for (RecyclerViewHolder holder : holders.values()) {
                 holder.setIsDispatchScroll(false);
             }
-            behaviorDispatcher.onScrolled(activeHolder.getScrollY(), 0);
             activeHolder = holders.get(recyclerView);
+            behaviorDispatcher.onScrolled(activeHolder.getScrollY(), 0);
             activeHolder.setIsDispatchScroll(true);
         }
 
@@ -141,9 +141,6 @@ public class MaterialScrollingViewPager extends ViewPager {
     public void setFlexibleHeight(final int flexibleHeight) {
         this.flexibleHeight = flexibleHeight;
         behaviorDispatcher.setFlexibleHeight(flexibleHeight);
-        for (RecyclerViewHolder holder : holders.values()) {
-            holder.setFlexibleHeight(flexibleHeight);
-        }
     }
 
     public void setBaseHeight(final int baseHeight) {
